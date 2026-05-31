@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a0d05;
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.root {
+  font-family: 'DM Sans', sans-serif;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #1a0d05;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ── ROOM AMBIENT ── */
+.room-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 100%, #2a1505 0%, transparent 60%),
+    radial-gradient(ellipse 100% 60% at 50% 110%, #3d1e08 0%, transparent 50%),
+    linear-gradient(180deg, #0d0705 0%, #1a0d05 40%, #0d0705 100%);
+}
+
+.room-pattern {
+  position: absolute; inset: 0;
+  opacity: 0.06;
+  background-image:
+    repeating-linear-gradient(45deg, #c8a050 0px, #c8a050 1px, transparent 1px, transparent 28px),
+    repeating-linear-gradient(-45deg, #c8a050 0px, #c8a050 1px, transparent 1px, transparent 28px);
+}
+
+/* ── OVERHEAD LAMP GLOW ── */
+.lamp-glow {
+  position: absolute;
+  top: -80px; left: 50%; transform: translateX(-50%);
+  width: 500px; height: 300px;
+  background: radial-gradient(ellipse 60% 80% at 50% 10%, rgba(255,220,140,0.22) 0%, rgba(255,180,60,0.08) 40%, transparent 70%);
+  pointer-events: none; z-index: 2;
+  animation: lamp-flicker 6s ease-in-out infinite;
+}
+@keyframes lamp-flicker {
+  0%,100% { opacity: 1; }
+  45% { opacity: 0.88; }
+  47% { opacity: 0.95; }
+  49% { opacity: 0.85; }
+  60% { opacity: 1; }
+}
+
+/* ── WOODEN RAIL ── */
+.wood-outer {
+  position: absolute;
+  top: 48px; left: 20px; right: 20px; bottom: 55px;
+  border-radius: 50% / 46%;
+  background:
+    radial-gradient(ellipse 100% 50% at 50% 0%,   #8B5E2A 0%, #5C3A10 35%, #3D2208 100%),
+    radial-gradient(ellipse 100% 50% at 50% 100%, #6B4520 0%, #3D2208 100%);
+  background-blend-mode: multiply;
+  box-shadow:
+    0 8px 40px rgba(0,0,0,0.8),
+    0 2px 8px rgba(0,0,0,0.6),
+    inset 0 2px 6px rgba(255,200,100,0.15),
+    inset 0 -2px 6px rgba(0,0,0,0.5);
+  z-index: 3;
+}
+
+.wood-grain {
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background-image:
+    repeating-linear-gradient(
+      88deg,
+      transparent 0px, transparent 8px,
+      rgba(0,0,0,0.06) 8px, rgba(0,0,0,0.06) 9px
+    ),
+    repeating-linear-gradient(
+      92deg,
+      transparent 0px, transparent 14px,
+      rgba(255,200,100,0.04) 14px, rgba(255,200,100,0.04) 15px
+    );
+}
+
+.wood-sheen {
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg,
+    rgba(255,220,150,0.18) 0%,
+    rgba(255,180,80,0.08) 20%,
+    transparent 50%,
+    rgba(0,0,0,0.2) 100%
+  );
+}
+
+/* ── FELT TABLE SURFACE ── */
+.felt-surface {
+  position: absolute;
+  top: 68px; left: 40px; right: 40px; bottom: 75px;
+  border-radius: 50% / 44%;
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 35%, #1a5c2e 0%, #14481f 45%, #0e3316 100%);
+  overflow: hidden;
+  z-index: 4;
+  box-shadow:
+    inset 0 0 80px rgba(0,0,0,0.55),
+    inset 0 0 30px rgba(0,0,0,0.3),
+    inset 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.felt-weave {
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg,   transparent, transparent 3px, rgba(0,0,0,0.06) 3px, rgba(0,0,0,0.06) 4px),
+    repeating-linear-gradient(90deg,  transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px),
+    repeating-linear-gradient(45deg,  transparent, transparent 6px, rgba(255,255,255,0.012) 6px, rgba(255,255,255,0.012) 7px),
+    repeating-linear-gradient(-45deg, transparent, transparent 6px, rgba(255,255,255,0.012) 6px, rgba(255,255,255,0.012) 7px);
+}
+
+.felt-light {
+  position: absolute;
+  top: -20%; left: 20%; width: 60%; height: 70%;
+  background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(255,230,150,0.07) 0%, transparent 70%);
+  pointer-events: none;
+  animation: lamp-flicker 6s ease-in-out infinite;
+}
+
+.felt-center-mark {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -48%);
+  width: 90px; height: 60px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ── INNER GOLD RAIL LINE ── */
+.rail-line {
+  position: absolute;
+  top: 63px; left: 35px; right: 35px; bottom: 70px;
+  border-radius: 50% / 44%;
+  border: 1.5px solid rgba(200,160,60,0.35);
+  z-index: 5;
+  pointer-events: none;
+}
+
+
+/* ── HEADER ── */
+.hdr {
+  position: relative; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 22px 0;
+  height: 48px;
+}
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; letter-spacing: 4px;
+  color: #ffd060;
+  filter: drop-shadow(0 0 8px rgba(255,200,60,0.5));
+}
+.status-pill {
+  display: flex; align-items: center; gap: 5px;
+  padding: 4px 11px; border: 1px solid rgba(0,255,150,0.3);
+  border-radius: 20px; background: rgba(0,255,150,0.07);
+  font-size: 10px; font-weight: 600; letter-spacing: 1.5px; color: #00ffaa;
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; background: #00ffaa; animation: pdot 1.4s infinite; }
+@keyframes pdot { 0%,100%{opacity:1}50%{opacity:.3} }
+.rnd-lbl { font-size:10px; color:rgba(255,255,255,0.3); letter-spacing:.5px; text-align:center; }
+.turn-lbl { font-size:10px; color:#ffd060; font-weight:600; letter-spacing:1px; text-transform:uppercase; text-align:center; animation:bl 1.5s infinite; }
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── PLAYERS ── */
+.player { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 30; }
+.pcard {
+  background: rgba(5,15,8,0.88);
+  border: 1.5px solid rgba(255,255,255,0.1);
+  border-radius: 11px; padding: 8px 13px;
+  min-width: 98px; text-align: center; position: relative; overflow: hidden;
+  backdrop-filter: blur(4px);
+}
+.pcard.active { border-color: rgba(255,200,60,0.85); box-shadow: 0 0 18px rgba(255,200,60,0.22); }
+.pcard.safe   { border-color: rgba(0,220,120,0.55); }
+.pcard.busted { border-color: rgba(255,60,60,0.4); opacity: .78; }
+.sweep { position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#ffd060,transparent);animation:sw 2s infinite; }
+@keyframes sw{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.pname { font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:1.5px;color:#fff; }
+.pname.gold{color:#ffd060}
+.ppts-l{font-size:8px;color:rgba(255,255,255,0.3);letter-spacing:.5px;text-transform:uppercase}
+.ppts{font-size:16px;font-weight:600;color:#fff;line-height:1.15}
+.ppts.gold{color:#ffd060}
+.pbadge{font-size:7.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;border-radius:9px;margin-top:3px;display:inline-block}
+.b-play{background:rgba(255,200,60,0.12);color:#ffd060}
+.b-safe{background:rgba(0,220,120,0.12);color:#00dc82}
+.b-bust{background:rgba(255,60,60,0.12);color:#ff5555}
+.pcards{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;max-width:180px}
+
+/* ── CARD STYLE ── */
+.fc{width:42px;height:58px;border-radius:6px;background:#f5edd8;position:relative;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.55),0 1px 3px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;flex-direction:column;flex-shrink:0}
+.fc-border{position:absolute;inset:2px;border:1.5px solid var(--c2);border-radius:4px;pointer-events:none}
+.fc-num{font-family:'Bebas Neue',sans-serif;font-size:25px;line-height:1;color:var(--c1);position:relative;z-index:2}
+.fc-lbl{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-size:4.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--c1)}
+.fc-shine{position:absolute;top:0;left:0;right:0;height:38%;background:rgba(255,255,255,0.13)}
+
+.cn0 { --c1:#c41e1e; --c2:#f47070 }
+.cn1 { --c1:#5d4037; --c2:#a1887f }
+.cn2 { --c1:#388e3c; --c2:#81c784 }
+.cn3 { --c1:#c2185b; --c2:#f06292 }
+.cn4 { --c1:#0097a7; --c2:#4dd0e1 }
+.cn5 { --c1:#2e7d32; --c2:#66bb6a }
+.cn6 { --c1:#7c1cb0; --c2:#c87de8 }
+.cn7 { --c1:#c4a01e; --c2:#f4d870 }
+.cn8 { --c1:#1e4ac4; --c2:#70a0f4 }
+.cn9 { --c1:#e65100; --c2:#ffb74d }
+.cn10 { --c1:#c41e1e; --c2:#f47070 }
+.cn11 { --c1:#0d47a1; --c2:#64b5f6 }
+.cn12 { --c1:#3e2723; --c2:#a1887f }
+
+.fc-mod{background:#f0a800;border:2px solid #c88000}
+.fc-mod-num{font-family:'Bebas Neue',sans-serif;font-size:16px;font-weight:900;color:#7a2c00;line-height:1;text-align:center}
+.fc-mod-sub{font-size:4px;color:rgba(100,40,0,0.65);letter-spacing:.2px;text-align:center;line-height:1.2;padding:0 3px}
+
+.fc-back{background:#1a6b7a;border:2px solid rgba(255,255,255,0.15)}
+.fc-back-inner{position:absolute;inset:4px;border:1px solid rgba(255,255,255,0.12);border-radius:3px;display:flex;align-items:center;justify-content:center}
+.fc-back-txt{font-family:'Bebas Neue',sans-serif;font-size:9px;letter-spacing:1px;color:rgba(255,255,255,0.45)}
+
+/* Bust cards tilt */
+.bust-l{transform:rotate(-10deg);filter:brightness(0.55) sepia(0.4)}
+.bust-r{transform:rotate(10deg);filter:brightness(0.55) sepia(0.4)}
+
+/* ── CONTROLS ── */
+.controls{position:relative;z-index:20;display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 24px 0}
+.btn-hit, .btn-stand {
+  padding:10px 28px;
+  border:1px solid rgba(0,255,100,0.3);
+  border-radius:8px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:18px;
+  letter-spacing:2px;
+  cursor:pointer;
+  background:rgba(0,40,15,0.4);
+  color:#fff;
+  box-shadow:0 0 15px rgba(0,255,100,0.15), inset 0 0 10px rgba(0,255,100,0.1);
+  transition:all 0.2s;
+}
+.btn-hit:hover, .btn-stand:hover {
+  background:rgba(0,60,20,0.6);
+  box-shadow:0 0 20px rgba(0,255,100,0.25), inset 0 0 10px rgba(0,255,100,0.15);
+  transform:translateY(-2px);
+}
+.btn-hit:disabled, .btn-stand:disabled {
+  opacity:0.4;
+  cursor:not-allowed;
+  transform:none;
+}
+
+/* ── SCOREBOARD ── */
+.scoreboard{position:relative;z-index:20;display:flex;gap:8px;padding:12px 22px 18px;justify-content:center}
+.sc{display:flex;flex-direction:column;align-items:center;background:transparent;border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:8px 18px;min-width:75px}
+.sc.lead{border-color:rgba(255,200,60,0.4);background:rgba(255,200,60,0.05)}
+.sc-n{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;font-weight:600}
+.sc-v{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;color:#fff}
+.sc.lead .sc-v{color:#ffd060}
+.sc-bg{width:46px;height:3px;border-radius:2px;background:rgba(255,255,255,0.1);margin-top:6px;overflow:hidden}
+.sc-bar{height:100%;border-radius:2px;background:linear-gradient(90deg,#ffd060,#ff8c00)}
+
+/* Bonus strip */
+.bonus-strip{display:flex;align-items:center;gap:7px;background:rgba(200,160,60,0.08);border:1px solid rgba(200,160,60,0.22);border-radius:20px;padding:4px 14px}
+.bonus-lbl{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;color:rgba(255,200,60,0.6)}
+.b7slot{width:12px;height:16px;border-radius:2px}
+.b7slot.on{background:rgba(255,200,60,0.6);border:1px solid rgba(255,200,60,0.85)}
+.b7slot.off{background:rgba(255,200,60,0.1);border:1px solid rgba(255,200,60,0.22)}
