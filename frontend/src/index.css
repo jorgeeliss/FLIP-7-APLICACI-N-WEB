@@ -57,7 +57,7 @@
   60% { opacity: 1; }
 }
 
-/* ── WOODEN RAIL ── */
+
 .wood-outer {
   position: absolute;
   top: 48px; left: 20px; right: 20px; bottom: 55px;
@@ -142,7 +142,7 @@
   border: 1px solid rgba(255,255,255,0.05);
 }
 
-/* ── INNER GOLD RAIL LINE ── */
+
 .rail-line {
   position: absolute;
   top: 63px; left: 35px; right: 35px; bottom: 70px;
@@ -262,7 +262,6 @@
   transform:none;
 }
 
-/* ── SCOREBOARD ── */
 .scoreboard{position:relative;z-index:20;display:flex;gap:8px;padding:12px 22px 18px;justify-content:center}
 .sc{display:flex;flex-direction:column;align-items:center;background:transparent;border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:8px 18px;min-width:75px}
 .sc.lead{border-color:rgba(255,200,60,0.4);background:rgba(255,200,60,0.05)}
@@ -272,7 +271,7 @@
 .sc-bg{width:46px;height:3px;border-radius:2px;background:rgba(255,255,255,0.1);margin-top:6px;overflow:hidden}
 .sc-bar{height:100%;border-radius:2px;background:linear-gradient(90deg,#ffd060,#ff8c00)}
 
-/* Bonus strip */
+
 .bonus-strip{display:flex;align-items:center;gap:7px;background:rgba(200,160,60,0.08);border:1px solid rgba(200,160,60,0.22);border-radius:20px;padding:4px 14px}
 .bonus-lbl{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:2px;color:rgba(255,200,60,0.6)}
 .b7slot{width:12px;height:16px;border-radius:2px}
