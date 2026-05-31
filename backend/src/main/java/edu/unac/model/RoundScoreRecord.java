@@ -1,6 +1,12 @@
 package edu.unac.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "round_scores")
@@ -27,7 +33,7 @@ public class RoundScoreRecord {
         this.scoreObtained = scoreObtained;
     }
 
-    // Getters and Setters
+    
     public Long getId() { return id; }
     public GameHistory getGameHistory() { return gameHistory; }
     public void setGameHistory(GameHistory gameHistory) { this.gameHistory = gameHistory; }

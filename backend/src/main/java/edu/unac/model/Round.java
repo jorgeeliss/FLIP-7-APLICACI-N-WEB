@@ -56,7 +56,7 @@ public class Round {
         }
     }
 
-    // Getters
+    
     public boolean isFinished() { return isFinished; }
     public Deck getDeck() { return deck; }
 }

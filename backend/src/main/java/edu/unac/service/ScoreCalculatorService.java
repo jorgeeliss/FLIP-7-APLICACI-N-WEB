@@ -1,9 +1,11 @@
 package edu.unac.service;
-import edu.unac.model.Card;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import org.springframework.stereotype.Service;
+
+import edu.unac.model.Card;
 @Service
 public class ScoreCalculatorService {
 
@@ -13,7 +15,6 @@ public class ScoreCalculatorService {
     public boolean hasDuplicate(List<Card> hand) {
         Set<Integer> seenValues = new HashSet<>();
         for (Card card : hand) {
-            // Set.add() returns false if the element was already in the set
             if (!seenValues.add(card.getValue())) {
                 return true;
             }
@@ -30,7 +31,7 @@ public class ScoreCalculatorService {
 
     public int calculateScore(List<Card> hand) {
         if (hasDuplicate(hand)) {
-            return 0; // Busted hands yield 0 points
+            return 0; 
         }
 
         int score = 0;
@@ -41,7 +42,7 @@ public class ScoreCalculatorService {
             uniqueValues.add(card.getValue());
         }
 
-        // Flip7 Rule: 15 bonus points for having 7 different numerical cards
+        
         if (uniqueValues.size() >= CARDS_FOR_BONUS) {
             score += BONUS_POINTS;
         }
